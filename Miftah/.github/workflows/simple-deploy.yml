@@ -1,0 +1,41 @@
+name: Simple Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: release-${{ github.run_number }}
+        name: Miftah v1.0.${{ github.run_number }}
+        body: |
+          🔥 **مفتاح - السوق المفتوح الذكي**
+          
+          ✨ **المميزات:**
+          - 🎨 تصميم عصري مع Glass & Blur
+          - 🌍 دعم العربية والإنجليزية مع RTL
+          - 🤖 ذكاء اصطناعي متقدم
+          - 💬 دردشة فورية مع رسائل صوتية
+          - 🎯 نظام مزايدة مثل eBay
+          
+          🌐 **جرب الآن:** https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          
+        files: |
+          docs/**/*
+        draft: false
+        prerelease: false
