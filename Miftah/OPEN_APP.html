@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 مفتاح - افتح التطبيق</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .instructions {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🔥</div>
+        <h1>مفتاح - السوق المفتوح الذكي</h1>
+        
+        <a href="docs/index.html" class="button">🚀 افتح التطبيق الآن</a>
+        
+        <div class="instructions">
+            <p><strong>📱 للجوال:</strong></p>
+            <p>1. اضغط الزر أعلاه</p>
+            <p>2. أو افتح ملف <code>docs/index.html</code></p>
+            <p>3. يعمل في أي متصفح!</p>
+            
+            <br>
+            
+            <p><strong>🌐 للنشر:</strong></p>
+            <p>ارفع المجلد على GitHub وفعّل Pages</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto redirect after 3 seconds
+        setTimeout(() => {
+            if (confirm('هل تريد فتح التطبيق الآن؟')) {
+                window.location.href = 'docs/index.html';
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
