@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 مفتاح - تطبيق السوق المفتوح</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .expo-button {
+            background: linear-gradient(45deg, #000, #333);
+        }
+        
+        .web-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        .features {
+            margin-top: 30px;
+            text-align: right;
+        }
+        
+        .feature {
+            color: white;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+        
+        .qr-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: white;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .button {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🔥</div>
+        <h1>مفتاح</h1>
+        <p class="subtitle">تطبيق السوق المفتوح الذكي</p>
+        
+        <!-- خيارات التشغيل -->
+        <div style="margin: 30px 0;">
+            <h2 style="color: white; margin-bottom: 20px;">📱 شغّل التطبيق الآن:</h2>
+            
+            <!-- الطريقة الأولى: المتصفح مباشرة -->
+            <a href="./index.html" class="button web-button" target="_blank">
+                🌐 افتح في المتصفح
+            </a>
+            
+            <!-- الطريقة الثانية: Expo Go -->
+            <div class="qr-section">
+                <h3 style="color: white; margin-bottom: 15px;">📱 للحصول على تجربة أفضل:</h3>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 15px;">
+                    1. حمّل تطبيق <strong>Expo Go</strong> من متجر التطبيقات
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=host.exp.exponent" 
+                   class="button expo-button" target="_blank">
+                    📥 تحميل Expo Go (أندرويد)
+                </a>
+                <a href="https://apps.apple.com/app/expo-go/id982107779" 
+                   class="button expo-button" target="_blank">
+                   📥 تحميل Expo Go (آيفون)
+                </a>
+                
+                <div class="qr-placeholder">
+                    <div style="text-align: center; color: #666;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📱</div>
+                        <div style="font-size: 0.9rem;">QR Code هنا</div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">عند تشغيل الخادم</div>
+                    </div>
+                </div>
+                
+                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                    امسح الـ QR Code بتطبيق Expo Go لتجربة أفضل
+                </p>
+            </div>
+        </div>
+        
+        <!-- المميزات -->
+        <div class="features">
+            <h3 style="color: white; margin-bottom: 15px; text-align: center;">✨ المميزات:</h3>
+            <div class="feature">🎨 تصميم عصري مع تأثيرات Glass</div>
+            <div class="feature">🌍 دعم العربية والإنجليزية</div>
+            <div class="feature">🤖 ذكاء اصطناعي متقدم</div>
+            <div class="feature">💬 دردشة فورية مع رسائل صوتية</div>
+            <div class="feature">🎯 نظام مزايدة مثل eBay</div>
+            <div class="feature">🔐 نظام أمان متطور</div>
+        </div>
+        
+        <!-- تعليمات إضافية -->
+        <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px;">
+            <h3 style="color: white; margin-bottom: 15px;">📋 تعليمات:</h3>
+            <div style="color: rgba(255,255,255,0.9); text-align: right; font-size: 0.9rem;">
+                <p style="margin: 8px 0;">1️⃣ للتجربة السريعة: اضغط "افتح في المتصفح"</p>
+                <p style="margin: 8px 0;">2️⃣ للتجربة الكاملة: حمّل Expo Go وامسح QR</p>
+                <p style="margin: 8px 0;">3️⃣ أنشئ حساب جديد أو سجل دخول</p>
+                <p style="margin: 8px 0;">4️⃣ استمتع بالتسوق الذكي!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // إضافة تأثيرات تفاعلية
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            button.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // رسالة ترحيب
+        setTimeout(() => {
+            if (confirm('🎉 مرحباً بك في مفتاح!\n\nهل تريد تجربة التطبيق الآن؟')) {
+                window.location.href = './index.html';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
