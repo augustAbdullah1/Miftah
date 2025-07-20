@@ -4,6 +4,7 @@ import {
   useColorScheme,
   I18nManager,
   Platform,
+  Text,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -146,12 +147,12 @@ const DummyScreen = () => {
           color={theme.colors.primary}
           style={{ marginBottom: 16, alignSelf: 'center' }}
         />
-        <text style={{ color: theme.colors.text, fontSize: 18, textAlign: 'center' }}>
+        <Text style={{ color: theme.colors.text, fontSize: 18, textAlign: 'center' }}>
           🚧 Under Development 🚧
-        </text>
-        <text style={{ color: theme.colors.textSecondary, fontSize: 14, textAlign: 'center', marginTop: 8 }}>
+        </Text>
+        <Text style={{ color: theme.colors.textSecondary, fontSize: 14, textAlign: 'center', marginTop: 8 }}>
           This feature is coming soon!
-        </text>
+        </Text>
       </GlassContainer>
     </LinearGradient>
   );
