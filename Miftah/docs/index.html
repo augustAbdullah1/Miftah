@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🔥 مفتاح - السوق المفتوح الذكي</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="مفتاح">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="مفتاح - السوق المفتوح الذكي">
+    <meta property="og:description" content="تطبيق سوق إلكتروني عصري بالذكاء الاصطناعي">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+        }
+        
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+        }
+        
+        .app-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn.secondary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .feature-desc {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .demo-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .demo-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .demo-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .demo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .demo-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .demo-desc {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Auth Section */
+        .auth-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .auth-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .auth-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .auth-switch {
+            text-align: center;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+        
+        .auth-link {
+            color: #4ecdc4;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hidden sections */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Success message */
+        .success-message {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .error-message {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 15px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <span class="logo">🔥</span>
+                    <span class="app-name">مفتاح</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn active" onclick="showSection('home')">الرئيسية</button>
+                    <button class="nav-btn" onclick="showSection('features')">المميزات</button>
+                    <button class="nav-btn" onclick="showSection('demo')">تجربة</button>
+                    <button class="nav-btn" onclick="showSection('auth')">دخول</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="welcome-section">
+                    <h1 class="welcome-title">🔥 مرحباً بك في مفتاح</h1>
+                    <p class="welcome-subtitle">السوق المفتوح الذكي مع تقنيات الذكاء الاصطناعي</p>
+                    <div class="cta-buttons">
+                        <button class="cta-btn" onclick="showSection('demo')">🚀 جرب الآن</button>
+                        <button class="cta-btn secondary" onclick="showSection('features')">📋 المميزات</button>
+                    </div>
+                </div>
+
+                <!-- Quick Features -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🎨</span>
+                        <h3 class="feature-title">تصميم عصري</h3>
+                        <p class="feature-desc">واجهة مستخدم حديثة مع تأثيرات Glass وBlur</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌍</span>
+                        <h3 class="feature-title">دعم اللغات</h3>
+                        <p class="feature-desc">العربية والإنجليزية مع دعم كامل لـ RTL</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🤖</span>
+                        <h3 class="feature-title">ذكاء اصطناعي</h3>
+                        <p class="feature-desc">كشف احتيال، ترجمة تلقائية، وتوصيات ذكية</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <div class="demo-section">
+                    <h2 class="demo-title">✨ جميع المميزات</h2>
+                    <div class="demo-content">
+                        <div class="demo-item">
+                            <span class="demo-icon">💬</span>
+                            <div class="demo-name">دردشة فورية</div>
+                            <div class="demo-desc">رسائل صوتية وترجمة تلقائية</div>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-icon">🎯</span>
+                            <div class="demo-name">نظام مزايدة</div>
+                            <div class="demo-desc">مزايدة مباشرة مثل eBay</div>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-icon">🔐</span>
+                            <div class="demo-name">أمان متطور</div>
+                            <div class="demo-desc">Firebase مع تشفير شامل</div>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-icon">📊</span>
+                            <div class="demo-name">تحليلات ذكية</div>
+                            <div class="demo-desc">إحصائيات وتوصيات مخصصة</div>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-icon">🏪</span>
+                            <div class="demo-name">متعدد البائعين</div>
+                            <div class="demo-desc">متاجر متنوعة في مكان واحد</div>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-icon">📱</span>
+                            <div class="demo-name">جميع المنصات</div>
+                            <div class="demo-desc">ويب، أندرويد، iOS</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo Section -->
+            <section id="demo" class="section">
+                <div class="demo-section">
+                    <h2 class="demo-title">🎮 جرب التطبيق</h2>
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">اختر طريقة التجربة:</p>
+                        <div class="cta-buttons">
+                            <button class="cta-btn" onclick="startWebDemo()">🌐 تجربة الويب</button>
+                            <a href="https://play.google.com/store/apps/details?id=host.exp.exponent" 
+                               class="cta-btn secondary" target="_blank">📱 Expo Go</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Demo -->
+                    <div id="web-demo" style="display: none;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                            <h3 style="text-align: center; margin-bottom: 20px;">📱 محاكي التطبيق</h3>
+                            <div style="background: white; border-radius: 20px; padding: 20px; color: #333; min-height: 400px;">
+                                <div style="text-align: center; padding: 40px;">
+                                    <div style="font-size: 3rem; margin-bottom: 20px;">🔥</div>
+                                    <h2 style="color: #667eea; margin-bottom: 15px;">مفتاح</h2>
+                                    <p style="margin-bottom: 30px;">مرحباً بك في السوق المفتوح الذكي</p>
+                                    
+                                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                        <button onclick="demoLogin()" style="background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">تسجيل دخول</button>
+                                        <button onclick="demoRegister()" style="background: #4ecdc4; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">حساب جديد</button>
+                                    </div>
+                                    
+                                    <div id="demo-content" style="margin-top: 30px; text-align: right;">
+                                        <p style="margin: 10px 0;">🏠 تصفح المنتجات</p>
+                                        <p style="margin: 10px 0;">🔍 بحث ذكي</p>
+                                        <p style="margin: 10px 0;">💬 دردشة مع البائعين</p>
+                                        <p style="margin: 10px 0;">🎯 مزايدة على المنتجات</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Auth Section -->
+            <section id="auth" class="section">
+                <div class="auth-section">
+                    <h2 class="auth-title">🔐 تسجيل الدخول</h2>
+                    
+                    <div class="success-message" id="success-msg"></div>
+                    <div class="error-message" id="error-msg"></div>
+                    
+                    <!-- Login Form -->
+                    <div id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label">البريد الإلكتروني:</label>
+                            <input type="email" class="form-input" placeholder="example@email.com" id="login-email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">كلمة المرور:</label>
+                            <input type="password" class="form-input" placeholder="••••••••" id="login-password">
+                        </div>
+                        <button class="auth-btn" onclick="handleLogin()">🚀 دخول</button>
+                        <div class="auth-switch">
+                            ليس لديك حساب؟ <span class="auth-link" onclick="showRegister()">إنشاء حساب جديد</span>
+                        </div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="register-form" class="auth-form" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الكامل:</label>
+                            <input type="text" class="form-input" placeholder="محمد أحمد" id="register-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">البريد الإلكتروني:</label>
+                            <input type="email" class="form-input" placeholder="example@email.com" id="register-email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">كلمة المرور:</label>
+                            <input type="password" class="form-input" placeholder="••••••••" id="register-password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">تأكيد كلمة المرور:</label>
+                            <input type="password" class="form-input" placeholder="••••••••" id="register-confirm">
+                        </div>
+                        <button class="auth-btn" onclick="handleRegister()">✨ إنشاء حساب</button>
+                        <div class="auth-switch">
+                            لديك حساب بالفعل؟ <span class="auth-link" onclick="showLogin()">تسجيل دخول</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>جاري التحميل...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">حول التطبيق</a>
+                <a href="#" class="footer-link">الدعم</a>
+                <a href="#" class="footer-link">الخصوصية</a>
+                <a href="https://github.com" class="footer-link" target="_blank">GitHub</a>
+            </div>
+            <p style="opacity: 0.7;">© 2025 مفتاح - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script>
+        // App State
+        let currentUser = null;
+        let currentSection = 'home';
+
+        // Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+            
+            // Add active to clicked nav button
+            event.target.classList.add('active');
+            
+            currentSection = sectionName;
+        }
+
+        // Demo Functions
+        function startWebDemo() {
+            document.getElementById('web-demo').style.display = 'block';
+            showMessage('🎉 مرحباً بك في تجربة مفتاح!', 'success');
+        }
+
+        function demoLogin() {
+            showMessage('تم تسجيل الدخول بنجاح! مرحباً بك في مفتاح', 'success');
+            updateDemoContent('logged-in');
+        }
+
+        function demoRegister() {
+            showMessage('تم إنشاء الحساب بنجاح! مرحباً بك في مفتاح', 'success');
+            updateDemoContent('registered');
+        }
+
+        function updateDemoContent(state) {
+            const content = document.getElementById('demo-content');
+            if (state === 'logged-in' || state === 'registered') {
+                content.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">🎉 أهلاً وسهلاً!</h3>
+                        <p style="margin: 10px 0;">✅ تم تسجيل الدخول بنجاح</p>
+                        <p style="margin: 10px 0;">🛍️ يمكنك الآن تصفح المنتجات</p>
+                        <p style="margin: 10px 0;">💬 بدء المحادثات مع البائعين</p>
+                        <p style="margin: 10px 0;">🎯 المشاركة في المزايدات</p>
+                        <div style="margin-top: 20px;">
+                            <button onclick="showMainApp()" style="background: #4ecdc4; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer;">🚀 دخول التطبيق</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function showMainApp() {
+            showMessage('🚀 مرحباً بك في التطبيق الكامل! جاري التحميل...', 'success');
+            showLoading(true);
+            
+            setTimeout(() => {
+                showLoading(false);
+                showMessage('التطبيق الكامل متاح عبر Expo Go أو عند النشر الكامل', 'success');
+            }, 2000);
+        }
+
+        // Auth Functions
+        function showLogin() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+            document.querySelector('.auth-title').textContent = '🔐 تسجيل الدخول';
+        }
+
+        function showRegister() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+            document.querySelector('.auth-title').textContent = '✨ إنشاء حساب جديد';
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email || !password) {
+                showMessage('يرجى ملء جميع الحقول', 'error');
+                return;
+            }
+            
+            showLoading(true);
+            
+            // Simulate login
+            setTimeout(() => {
+                showLoading(false);
+                currentUser = { email, name: 'مستخدم تجريبي' };
+                showMessage('🎉 تم تسجيل الدخول بنجاح!', 'success');
+                
+                setTimeout(() => {
+                    showSection('demo');
+                    startWebDemo();
+                }, 1500);
+            }, 2000);
+        }
+
+        function handleRegister() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            
+            if (!name || !email || !password || !confirm) {
+                showMessage('يرجى ملء جميع الحقول', 'error');
+                return;
+            }
+            
+            if (password !== confirm) {
+                showMessage('كلمة المرور غير متطابقة', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showMessage('كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                return;
+            }
+            
+            showLoading(true);
+            
+            // Simulate registration
+            setTimeout(() => {
+                showLoading(false);
+                currentUser = { email, name };
+                showMessage('🎉 تم إنشاء الحساب بنجاح!', 'success');
+                
+                setTimeout(() => {
+                    showSection('demo');
+                    startWebDemo();
+                }, 1500);
+            }, 2000);
+        }
+
+        // Utility Functions
+        function showMessage(message, type) {
+            const successMsg = document.getElementById('success-msg');
+            const errorMsg = document.getElementById('error-msg');
+            
+            if (type === 'success') {
+                successMsg.textContent = message;
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+            } else {
+                errorMsg.textContent = message;
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+            }
+            
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+                errorMsg.style.display = 'none';
+            }, 5000);
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', function() {
+            showMessage('🔥 مرحباً بك في مفتاح - السوق المفتوح الذكي!', 'success');
+        });
+
+        // PWA Installation
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            
+            // Show install button
+            const installBtn = document.createElement('button');
+            installBtn.textContent = '📱 تثبيت التطبيق';
+            installBtn.className = 'cta-btn';
+            installBtn.onclick = async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    if (outcome === 'accepted') {
+                        showMessage('🎉 تم تثبيت التطبيق بنجاح!', 'success');
+                    }
+                    deferredPrompt = null;
+                    installBtn.remove();
+                }
+            };
+            
+            document.querySelector('.cta-buttons').appendChild(installBtn);
+        });
+
+        // Touch gestures for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            const swipeThreshold = 100;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next section
+                    const sections = ['home', 'features', 'demo', 'auth'];
+                    const currentIndex = sections.indexOf(currentSection);
+                    const nextIndex = (currentIndex + 1) % sections.length;
+                    showSection(sections[nextIndex]);
+                } else {
+                    // Swipe right - previous section
+                    const sections = ['home', 'features', 'demo', 'auth'];
+                    const currentIndex = sections.indexOf(currentSection);
+                    const prevIndex = currentIndex === 0 ? sections.length - 1 : currentIndex - 1;
+                    showSection(sections[prevIndex]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
